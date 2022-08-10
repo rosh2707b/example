@@ -21,5 +21,4 @@ jobs:
         type: registry-image
         source: { repository: busybox }
       run:
-        path: ls
-        args: ["-la", "./concourse-docs-git/tasks"]
+        path: concourse-docs-git/pipelines/git-triggered.sh
