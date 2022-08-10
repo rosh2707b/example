@@ -13,12 +13,4 @@ jobs:
   - get: concourse-docs-git
     trigger: true
   - task: list-files
-    config:
-      inputs:
-        - name: concourse-docs-git
-      platform: linux
-      image_resource:
-        type: registry-image
-        source: { repository: busybox }
-      run:
-        path: concourse-docs-git/pipelines/git-triggered.sh
+    file: concourse-docs-git/pipelines/git-triggered.sh
