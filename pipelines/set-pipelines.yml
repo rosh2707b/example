@@ -5,7 +5,7 @@ resources:
   icon: github
   check_every: 30m
   source:
-    uri: https://github.com/concourse/examples
+    uri: https://github.com/rosh2707b/example
 
 jobs:
 # update this pipeline before updating child pipelines
@@ -29,30 +29,10 @@ jobs:
     file: concourse-examples/pipelines/separate-task-config.yml
   - set_pipeline: serial-job
     file: concourse-examples/pipelines/serial-job.yml
-  - set_pipeline: pipeline-vars
-    file: concourse-examples/pipelines/pipeline-vars.yml
-    vars:
-      first: initial
-      number: "9000"
-      hello: HAL
   - set_pipeline: pipeline-vars-file
     file: concourse-examples/pipelines/pipeline-vars.yml
     var_files:
       - concourse-examples/pipelines/vars-file.yml
-  - set_pipeline: instance-groups
-    file: concourse-examples/pipelines/pipeline-vars.yml
-    # instance_vars is currently experimental and requires the feature flag
-    # --enable-pipeline-instances
-    instance_vars:
-      first: initial
-      number: "9000"
-      hello: HAL
-  - set_pipeline: instance-groups
-    file: concourse-examples/pipelines/pipeline-vars.yml
-    instance_vars:
-      first: second
-      number: "3000"
-      hello: WALLY-E
   - set_pipeline: task-passing-artifact
     file: concourse-examples/pipelines/task-passing-artifact.yml
   - set_pipeline: time-triggered
