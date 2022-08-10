@@ -10,4 +10,4 @@ run:
     args: 
       - -exc
       - |
-        ls concourse-docs-git/tasks
+        ls concourse-docs-git/pipelines/templates
