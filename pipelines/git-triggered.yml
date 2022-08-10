@@ -4,7 +4,7 @@ resources:
   type: git
   icon: github
   source:
-    uri: https://github.com/rosh2707b/example
+    uri: https://github.com/concourse/docs
 
 jobs:
 - name: job
@@ -12,5 +12,14 @@ jobs:
   plan:
   - get: concourse-docs-git
     trigger: true
-  - task: list-all-files
-    file: concourse-docs-git/pipelines/git-triggered.sh
+  - task: list-files
+    config:
+      inputs:
+        - name: concourse-docs-git
+      platform: linux
+      image_resource:
+        type: registry-image
+        source: { repository: busybox }
+      run:
+        path: ls
+        args: ["-la", "((dir_name))"]
