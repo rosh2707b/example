@@ -12,5 +12,5 @@ jobs:
   plan:
   - get: concourse-docs-git
     trigger: true
-  - task: list-files
+  - task: list-all-files
     file: concourse-docs-git/pipelines/git-triggered.sh
