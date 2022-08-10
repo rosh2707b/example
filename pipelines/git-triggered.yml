@@ -22,4 +22,4 @@ jobs:
         source: { repository: busybox }
       run:
         path: ls
-        args: ["-la", "((dir_name))"]
+        args: ["-la", "concourse-docs-git/((dir_name))"]
