@@ -5,12 +5,18 @@ resources:
   icon: github
   source:
     uri: https://github.com/rosh2707b/example
+- name: timer
+  type: timer
+  source:
+    interval: 3m
 
 jobs:
 - name: job
   public: true
   plan:
   - get: concourse-docs-git
+    trigger: true
+  - get: timer
     trigger: true
   - task: list-files
     config:
