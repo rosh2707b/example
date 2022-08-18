@@ -6,7 +6,7 @@ resources:
   source:
     uri: https://github.com/rosh2707b/example
 - name: timer
-  type: timer
+  type: time
   source:
     interval: 3m
 
